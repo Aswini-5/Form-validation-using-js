@@ -1,0 +1,168 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    width: 100%; /* Increased width for better content accommodation */
+    height: 100vh; /* Increased height for better content accommodation */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+/* General styling */
+.input-container {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Input fields styling */
+.input-container input,
+.input-container select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Placeholder initial state */
+.input-container input::placeholder,
+.input-container select::placeholder {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s ease-in-out;
+    opacity: 1;
+    color: #999;
+}
+
+/* Slide the placeholder when input is focused */
+.input-container input:focus::placeholder,
+.input-container select:focus::placeholder {
+    left: -150%;
+    opacity: 0;
+}
+
+/* Slide the placeholder when user starts typing */
+.input-container input:not(:placeholder-shown)::placeholder,
+.input-container select:not(:placeholder-shown)::placeholder {
+    left: -150%;
+    opacity: 0;
+}
+
+/* Add placeholder animation on hover */
+.input-container input:hover::placeholder,
+.input-container select:hover::placeholder {
+    transform: translateY(-50%) scale(1.1);
+    color: #555;
+}
+
+/* Slide the entire input box on hover */
+.input-container:hover {
+    transform: translateX(10px); /* Slide the box slightly to the right */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+
+
+
+.left-section, .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-section {
+    background-image: url('your-image-path.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+.right-section {
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto; /* Adds scroll if content overflows */
+}
+
+.register-form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.heading-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-container input,
+.input-container select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.errors {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.indicator span {
+    width: 30%;
+    height: 5px;
+    background-color: #ddd;
+}
+
+.strength {
+    height: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.message a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.message a:hover {
+    text-decoration: underline;
+}

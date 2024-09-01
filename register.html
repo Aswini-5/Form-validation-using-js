@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <style>
+        /* General styling */
+        body {
+            font-family: Bell MT, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            height: 80vh;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Needed for absolute positioning of the text overlay */
+        }
+
+        .left-section {
+            position: relative;
+            background-image: url('Blue Beige Minimalist Townhall Meeting Invitation.png'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .right-section {
+            background-color: white;
+            padding: 20px;
+        }
+
+        .register-form {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .heading-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-container input, .input-container select {
+    font-family: Bell MT, sans-serif;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 8px; /* Adjust the value to change the roundness */
+    border: 1px solid #ccc; /* Add a border color */
+    background-color: #f9f9f9; /* Optional: add a background color */
+}
+
+        .errors {
+            color: red;
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .indicator span {
+            width: 30%;
+            height: 5px;
+            background-color: #ddd;
+        }
+
+        .strength {
+            height: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-family: Bell MT, sans-serif;
+            width: 100%;
+            padding: 10px;
+            background-color: #9577d2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #9577d2;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .message a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+        </div>
+        
+        <div class="right-section">
+            <form class="register-form" id="register-form">
+                <h2 class="heading-text">Registration Form</h2>
+                <!-- Registration Form Content -->
+                <div class="input-container">
+                    <input type="text" id="fname" placeholder="First Name" required/>
+                    <i class="fas fa-user"></i>
+                </div>
+                <p class="errors" id="error1"></p>
+                <p class="errors" id="error2"></p>
+                <div class="input-container">
+                    <input type="text" id="phone" placeholder="Phone" required/>
+                    <i class="fas fa-phone"></i>
+                </div>
+                <p class="errors" id="error3"></p>
+                <!-- Degree and Major Selection -->
+                <div class="input-container">
+                    <select id="degree" required>
+                        <option value="" disabled selected>Select Degree</option>
+                        <option value="btech">B.Tech</option>
+                        <option value="be">B.E.</option>
+                        <option value="bsc">B.Sc.</option>
+                        <option value="bca">BCA</option>
+                        <option value="bcom">B.Com</option>
+                        <option value="bfa">BFA</option>
+                        <option value="bdes">B.Des</option>
+                        <option value="bba">BBA</option>
+                        <option value="llb">LLB</option>
+                        <option value="msc">M.Sc.</option>
+                        <option value="mtech">M.Tech</option>
+                        <option value="me">M.E.</option>
+                        <option value="mca">MCA</option>
+                        <option value="mcom">M.Com</option>
+                        <option value="mfa">MFA</option>
+                        <option value="mdes">M.Des</option>
+                        <option value="mba">MBA</option>
+                        <option value="mpa">MPA</option>
+                        <option value="med">M.Ed</option>
+                        <option value="ms">MS</option>
+                        <option value="ma">MA</option>
+                        <option value="md">MD</option>
+                        <option value="mphil">M.Phil</option>
+                    </select>
+                </div>
+                <p class="errors" id="error4"></p>
+
+                <div class="input-container">
+                    <select id="major" required>
+                        <option value="" disabled selected>Select Major</option>
+                        <option value="acc">Accounting</option>
+                        <option value="arch">Architecture</option>
+                        <option value="ai">Artificial Intelligence</option>
+                        <option value="arts">Fine Arts</option>
+                        <option value="bio">Biology</option>
+                        <option value="bus">Business Administration</option>
+                        <option value="chem">Chemistry</option>
+                        <option value="ce">Civil Engineering</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="ds">Data Science</option>
+                        <option value="design">Design</option>
+                        <option value="eco">Economics</option>
+                        <option value="edu">Education</option>
+                        <option value="eng">Engineering</option>
+                        <option value="film">Film Studies</option>
+                        <option value="fin">Finance</option>
+                        <option value="hist">History</option>
+                        <option value="it">Information Technology</option>
+                        <option value="itm">Information Technology Management</option>
+                        <option value="law">Law</option>
+                        <option value="lit">Literature</option>
+                        <option value="math">Mathematics</option>
+                        <option value="media">Media Studies</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="med">Medicine</option>
+                        <option value="music">Music</option>
+                        <option value="nurs">Nursing</option>
+                        <option value="phy">Physics</option>
+                        <option value="phil">Philosophy</option>
+                        <option value="psych">Psychology</option>
+                        <option value="soci">Sociology</option>
+                        <option value="stat">Statistics</option>
+                        <option value="theater">Theater</option>
+                    </select>
+                </div>
+                <p class="errors" id="error5"></p>
+
+                <div class="input-container">
+                    <input type="text" id="organization" placeholder="Organization" required/>
+                    <i class="fas fa-building"></i>
+                </div>
+                <p class="errors" id="error6"></p>
+                
+                <div class="input-container">
+                    <input type="email" id="email" placeholder="Email" required/>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <p class="errors" id="error7"></p>
+                
+                
+                <button type="submit">Register</button>
+
+                <!-- New Account Link -->
+                <div class="register-link">
+                    <p>Don't have an account? <a href="account.html">Create one</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Validate First Name
+            document.getElementById('fname').addEventListener('input', function() {
+                const fname = this.value.trim();
+                const error1 = document.getElementById('error1');
+                if (fname === '') {
+                    error1.textContent = 'First Name is required.';
+                } else if (!/^[A-Za-z\s]+$/.test(fname)) {
+                    error1.textContent = 'First Name can only contain letters and spaces.';
+                } else {
+                    error1.textContent = '';
+                }
+            });
+        
+            // Validate Phone Number
+            document.getElementById('phone').addEventListener('input', function() {
+                const phone = this.value.trim();
+                const error3 = document.getElementById('error3');
+                if (phone === '') {
+                    error3.textContent = 'Phone number is required.';
+                } else if (!/^\d+$/.test(phone)) {
+                    error3.textContent = 'Phone number can only contain digits.';
+                } else if (phone.length < 10) {
+                    error3.textContent = 'Phone number must be at least 10 digits.';
+                } else {
+                    error3.textContent = '';
+                }
+            });
+
+            // Validate Degree
+            document.getElementById('degree').addEventListener('change', function() {
+                const degree = this.value;
+                const error4 = document.getElementById('error4');
+                if (degree === '') {
+                    error4.textContent = 'Degree is required.';
+                } else {
+                    error4.textContent = '';
+                }
+            });
+
+            // Validate Major
+            document.getElementById('major').addEventListener('change', function() {
+                const major = this.value;
+                const error5 = document.getElementById('error5');
+                if (major === '') {
+                    error5.textContent = 'Major is required.';
+                } else {
+                    error5.textContent = '';
+                }
+            });
+
+            // Validate Organization
+            document.getElementById('organization').addEventListener('input', function() {
+                const organization = this.value.trim();
+                const error6 = document.getElementById('error6');
+                if (organization === '') {
+                    error6.textContent = 'Organization is required.';
+                } else {
+                    error6.textContent = '';
+                }
+            });
+
+            // Validate Email
+            document.getElementById('email').addEventListener('input', function() {
+    const email = this.value.trim();
+    const error7 = document.getElementById('error7');
+    const emailPattern = /^[a-zA-Z][a-zA-Z0-9]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+
+    if (email === '') {
+        error7.textContent = 'Email is required.';
+    } else if (!emailPattern.test(email)) {
+        error7.textContent = 'Please enter a valid email address. It should start with an alphabet and can only contain alphanumeric characters and periods.';
+    } else {
+        error7.textContent = '';
+    }
+});
+
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

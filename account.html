@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <style>
+        /* General styling */
+        body {
+            font-family: Bell MT, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            height: 80vh;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .left-section {
+            position: relative;
+            background-image: url('Blue White Illustrative Meet and Greet Flyer.png'); /* Ensure the path is correct */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .right-section {
+            background-color: white;
+            padding: 20px;
+        }
+
+        .create-account-form {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .heading-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-container input, .input-container select {
+            font-family: Bell MT, sans-serif;
+            width: 100%;
+            padding: 10px 40px 10px 10px; /* Adjusted padding to make room for icon */
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .input-container i {
+            position: absolute;
+            top: 50%;
+            right: 10px; /* Positioned to the right */
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        .errors {
+            color: red;
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .password-strength-container {
+            position: relative;
+            margin-top: 5px;
+        }
+
+        .password-strength-bar {
+            height: 5px;
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 2px;
+        }
+
+        .password-strength-bar span {
+            display: block;
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .password-strength {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .password-strength.weak {
+            color: red;
+        }
+
+        .password-strength.medium {
+            color: orange;
+        }
+
+        .password-strength.strong {
+            color: green;
+        }
+
+        button {
+            font-family: Bell MT, sans-serif;
+            width: 100%;
+            padding: 10px;
+            background-color: #7ac6d5;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #7ac6d5;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+        </div>
+        
+        <div class="right-section">
+            <form class="create-account-form" id="create-account-form">
+                <h2 class="heading-text">Create Account</h2>
+                
+                <div class="input-container">
+                    <input type="text" id="fname" placeholder="First Name" required/>
+                    <i class="fas fa-user"></i>
+                </div>
+                <p class="errors" id="error1"></p>
+
+                <div class="input-container">
+                    <input type="text" id="lname" placeholder="Last Name" required/>
+                    <i class="fas fa-user"></i>
+                </div>
+                <p class="errors" id="error2"></p>
+                <div class="input-container">
+                    <input type="date" id="dob" placeholder="Date of Birth" required/>
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <p class="errors" id="error8"></p>
+                
+
+                <div class="input-container">
+                    <input type="email" id="email" placeholder="Email" required/>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <p class="errors" id="error3"></p>
+
+                <div class="input-container">
+                    <input type="password" id="password" placeholder="Password" required/>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <p class="errors" id="error4"></p>
+
+                <div class="password-strength-container">
+                    <div class="password-strength-bar">
+                        <span id="password-strength-bar"></span>
+                    </div>
+                    <p class="password-strength" id="password-strength"></p>
+                </div>
+
+                
+                <p class="errors" id="error5"></p>
+
+                <div class="input-container">
+                    <select id="state" required>
+                        <option value="" disabled selected>Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <p class="errors" id="error7"></p>
+
+                <div class="input-container">
+                    <select id="city" required>
+                        <option value="" disabled selected>Select City</option>
+                        
+                    </select>
+                    <i class="fas fa-city"></i>
+                </div>
+                <p class="errors" id="error6"></p>
+
+                <button type="submit">Create Account</button>
+
+                <div class="login-link">
+                    <p>Already have an account? <a href="login.html">Log in</a></p>
+                    <p>Not registered yet? <a href="register.html">Back to Registration</a></p>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('state').addEventListener('change', function() {
+            const state = this.value;
+            const citySelect = document.getElementById('city');
+    
+            // Clear previous options
+            citySelect.innerHTML = '<option value="" disabled selected>Select City</option>';
+    
+            // Populate new options based on selected state
+            const cities = states[state] || [];
+            cities.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city;
+                citySelect.appendChild(option);
+            });
+        });
+    </script>
+    
+    <script>
+        // States and Cities data
+        const states = {
+            "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Kakinada", "Nellore", "Tirupati", "Rajahmundry", "Anantapur", "Chittoor", "Eluru", "Kadapa", "Kakinada", "Nellore", "Ongole", "Srikakulam", "Warangal", "Khammam", "Medak", "Mahbubnagar", "Nalgonda", "Karimnagar", "Adilabad", "Bhadrachalam", "Jagtial", "Jagtial", "Jangaon", "Kamareddy", "Nizamabad", "Peddapalli", "Vikarabad", "Wanaparthy"],
+            "Arunachal Pradesh": ["Itanagar", "Tawang", "Bomdila", "Ziro", "Tezu", "Pasighat", "Namsai", "Yingkiong", "Along", "Roing", "Seppa", "Rupa", "Kurung Kumey", "West Kameng", "Lower Dibang Valley", "East Siang", "Upper Siang", "Upper Dibang Valley", "Anjaw", "Changlang", "Longding", "Lohit", "Lower Subansiri", "Papum Pare", "Kra Daadi", "Shi Yomi", "Leparada"],
+            "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Karimganj", "Tinsukia", "Haflong", "Bongaigaon", "Diphu", "Goalpara", "Sibsagar", "Barpeta", "Tezpur", "Kokrajhar", "Nalbari", "Lakhimpur", "Dhubri", "Hailakandi", "Sonitpur", "Morigaon", "Kakopathar", "Bokakhat", "Majuli", "Nalbari", "Darrang", "Udalguri", "Bongaigaon", "North Lakhimpur", "Haflong"],
+            "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Darbhanga", "Purnia", "Katihar", "Sasaram", "Arrah", "Nalanda", "Munger", "Aurangabad", "Jehanabad", "Siwan", "Chhapra", "Saharsa", "Begusarai", "Bagaha", "Kishanganj", "Lakhisarai", "Khagaria", "Banka", "Madhepura", "Buxar", "Vaishali", "Gopalganj", "Samastipur", "Jamalpur", "Nawada"],
+            "Chhattisgarh": ["Raipur", "Bilaspur", "Durg", "Korba", "Jagdalpur", "Raigarh", "Janjgir-Champa", "Kanker", "Kabirdham", "Dantewada", "Surguja", "Balod", "Baloda Bazar", "Rajnandgaon", "Bemetara", "Mungeli", "Gariaband", "Jashpur", "Kondagaon", "Narayanpur", "Dhamtari", "Gariaband", "Bijapur", "Surajpur", "Koriya", "Janjgir", "Champa", "Korba", "Durg"],
+            "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda", "Cortalim", "Curchorem", "Quepem", "Sanquelim", "Pernem", "Aldona", "Bicholim", "Canacona", "Sanguem", "Verna", "Benaulim", "Majorda", "Colva", "Dona Paula", "Saligao", "Parra", "Vasvaddo", "Palolem", "Arambol", "Calangute", "Anjuna", "Morjim", "Assagao", "Panjim"],
+            "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Gandhinagar", "Bhavnagar", "Junagadh", "Mehsana", "Porbandar", "Valsad", "Navsari", "Anand", "Patan", "Kutch", "Sabarkantha", "Aravalli", "Banaskantha", "Dahod", "Gir Somnath", "Panchmahal", "Surendranagar", "Tapi", "Chhota Udaipur", "Kheda", "Morbi", "Gandhinagar", "Bharuch", "Daman", "Diu", "Vapi"],
+            "Haryana": ["Gurgaon", "Faridabad", "Panipat", "Ambala", "Hisar", "Karnal", "Yamunanagar", "Sirsa", "Jind", "Rohtak", "Kurukshetra", "Panchkula", "Jhajjar", "Fatehabad", "Mahendragarh", "Bhiwani", "Charkhi Dadri", "Palwal", "Nuh", "Rewari", "Kaithal", "Gurgaon", "Faridabad", "Ambala", "Hisar", "Karnal", "Yamunanagar"],
+            "Himachal Pradesh": ["Shimla", "Dharamshala", "Solan", "Mandi", "Kangra", "Hamirpur", "Bilaspur", "Una", "Nahan", "Kullu", "Chamba", "Palampur", "Sundernagar", "Jawalamukhi", "Ghumarwin", "Rajgarh", "Arki", "Nalagarh", "Paonta Sahib", "Chandigarh", "Nahan", "Bilaspur", "Sirmaur", "Kangra", "Mandi"],
+            "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro Steel City", "Hazaribagh", "Deoghar", "Giridih", "Daltonganj", "Chaibasa", "Koderma", "Jhumri Tilaiya", "Ramgarh", "Seraikela", "Pakur", "Sahebganj", "Koderma", "Godda", "Latehar", "Bermo", "Silli", "Madhupur", "Tatisilwai", "Lohardaga", "Hazaribagh", "Ranchi"],
+            "Karnataka": ["Bengaluru", "Mysuru", "Hubli", "Dharwad", "Belagavi", "Mangaluru", "Udupi", "Shimoga", "Tumkur", "Chikkamagaluru", "Bagalkot", "Kolar", "Raichur", "Bidar", "Davangere", "Hassan", "Chitradurga", "Gulbarga", "Yadgir", "Haveri", "Udupi", "Karwar", "Koppa", "Sagara", "Kolar", "Mysuru"],
+            "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Kottayam", "Malappuram", "Kannur", "Alappuzha", "Palakkad", "Thrissur", "Idukki", "Wayanad", "Pathanamthitta", "Kollam", "Ernakulam", "Ponnani", "Cherthala", "Vypin", "Muvattupuzha", "Nedumbassery", "Mattannur", "Punalur", "Changanassery", "Kodungallur", "Kumarakom", "Sabarimala"],
+            "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar", "Rewa", "Satna", "Katni", "Khandwa", "Burhanpur", "Chhindwara", "Dewas", "Ratlam", "Shivpuri", "Mandsaur", "Neemuch", "Singrauli", "Tikamgarh", "Khargone", "Jhabua", "Hoshangabad", "Pithampur", "Mandideep", "Pachmarhi", "Jabalpur"],
+            "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Thane", "Kolhapur", "Solapur", "Jalgaon", "Amravati", "Ratnagiri", "Satara", "Latur", "Akola", "Washim", "Parbhani", "Yavatmal", "Beed", "Osmanabad", "Sindhudurg", "Bhandara", "Wardha", "Chandrapur", "Gadchiroli", "Palghar", "Sangli", "Mumbai", "Pune"],
+            "Manipur": ["Imphal", "Churachandpur", "Thoubal", "Bishnupur", "Senapati", "Ukhrul", "Tamenglong", "Kakching", "Jiribam", "Noney", "Chandel", "Pherzawl", "Kangpokpi", "Tengnoupal", "Ningthoukhong", "Moirang", "Sadar Hills", "Lamka", "Moreh", "Khongjom", "Sangaiprou", "Wangjing", "Henglep", "Churachandpur", "Nungba", "Imphal West"],
+            "Meghalaya": ["Shillong", "Tura", "Jowai", "Williamnagar", "Bhalukpong", "Mawlynnong", "Nongstoin", "Khliehriat", "Nongpoh", "Rongram", "Jowai", "Mairang", "Khliehriat", "Tura", "Nongstoin", "Bhoi", "Mawlai", "Pynursla", "Rongrenggre", "Tura", "Shillong", "Jowai", "Mawlynnong"],
+            "Mizoram": ["Aizawl", "Lunglei", "Champhai", "Siaha", "Serchhip", "Mamit", "Kolasib", "Lawngtlai", "Hnahthial", "Saitual", "Khawzawl", "Zokhawthar", "Buarpui", "Biate", "Kawnpui", "Khawbung", "Kharmua", "Sengpui", "Hnahthial", "Mamit", "Aizawl"],
+            "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha", "Zunheboto", "Phek", "Mon", "Longleng", "Peren", "Kiphire", "Chiephobozou", "Bhandari", "Noklak", "Wokha", "Mokokchung", "Dimapur", "Kohima", "Peren", "Mon"],
+            "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Balasore", "Jeypore", "Baripada", "Kendrapara", "Dhenkanal", "Bhadrak", "Bargarh", "Nabarangpur", "Koraput", "Jajpur", "Rayagada", "Sonepur", "Angul", "Ganjam", "Kalahandi", "Boudh", "Khurda", "Cuttack", "Bhubaneswar"],
+            "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"],
+            "Punjab": ["Chandigarh", "Amritsar", "Jalandhar", "Ludhiana", "Patiala", "Mohali", "Bathinda", "Fatehgarh Sahib", "Rupnagar", "Sangrur", "Moga", "Hoshiarpur", "Gurdaspur", "Faridkot", "Firozpur", "Kapurthala", "Barnala", "Mansa", "Moga", "Jalandhar", "Ludhiana"],
+            "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Kota", "Ajmer", "Bikaner", "Alwar", "Sikar", "Bhilwara", "Pali", "Nagaur", "Ratlamb", "Churu", "Barmer", "Jhunjhunu", "Dausa", "Sri Ganganagar", "Hanumangarh", "Sawai Madhopur", "Tonk", "Rajsamand", "Jaisalmer", "Dungarpur", "Jaisalmer", "Bundi"],
+            "Sikkim": ["Gangtok", "Namchi", "Mangan", "Rangpo", "Jorethang", "Singtam", "Gyalshing", "Pakyong", "Tadong", "Yuksom", "Soreng", "Dikchu", "Rongli", "Rangpo", "Sang", "Jorethang", "Mangan"],
+            "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Erode", "Vellore", "Tiruppur", "Nagercoil", "Kanchipuram", "Chidambaram", "Karur", "Thanjavur", "Pudukkottai", "Dindigul", "Sivakasi", "Tiruvannamalai", "Nagapattinam", "Arakkonam", "Cuddalore", "Kumbakonam", "Ramanathapuram", "Ariyalur", "Dharmapuri", "Tenkasi"],
+            "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Khammam", "Karimnagar", "Mahabubnagar", "Nalgonda", "Rangareddy", "Adilabad", "Medak", "Jagtial", "Jangaon", "Kamareddy", "Nirmal", "Peddapalli", "Sangareddy", "Mahabubabad", "Yadadri Bhuvanagiri", "Nagarkurnool", "Jagitial", "Nirmal", "Kamareddy", "Warangal"],
+            "Tripura": ["Agartala", "Udaipur", "Kailashahar", "Dharmanagar", "Ambassa", "Khowai", "Teliamura", "Belonia", "Jirania", "Sabroom", "Dhanpur", "Chandpur", "Jampuijala", "Kumarghat", "Kanchanpur", "Badharghat", "Rupshi", "Raishyabari", "Kamalpur", "Rohmang", "Udaipur", "Dhanpur", "Ambassa"],
+            "Uttar Pradesh": ["Lucknow", "Kanpur", "Agra", "Varanasi", "Allahabad", "Meerut", "Bareilly", "Ghaziabad", "Aligarh", "Moradabad", "Saharanpur", "Jhansi", "Firozabad", "Rampur", "Unnao", "Basti", "Sitapur", "Deoria", "Gorakhpur", "Etawah", "Jhansi", "Shahjahanpur", "Ballia", "Muzaffarnagar", "Shamli", "Hapur", "Raebareli", "Amroha", "Prayagraj", "Varanasi"],
+            "Uttarakhand": ["Dehradun", "Haridwar", "Nainital", "Rishikesh", "Rudrapur", "Haldwani", "Roorkee", "Kashipur", "Pantnagar", "Pauri", "Almora", "Chamoli", "Tehri", "Uttarkashi", "Pithoragarh", "Bageshwar", "Champawat", "Haridwar", "Rudraprayag", "Pauri", "Nainital"],
+            "West Bengal": ["Kolkata", "Howrah", "Siliguri", "Durgapur", "Asansol", "Haldia", "Kharagpur", "Bankura", "Jalpaiguri", "Burdwan", "Malda", "Cooch Behar", "Kolkata", "Siliguri", "Durgapur", "Haldia", "Jalpaiguri", "Asansol", "Murarai", "Kurseong", "Jhargram", "Purulia", "Birbhum", "Jangipur", "Kolkata", "Siliguri"]
+        };
+
+        function updateCities() {
+            const state = document.getElementById("state").value;
+            const cityDropdown = document.getElementById("city");
+
+            // Clear existing options
+            cityDropdown.innerHTML = "";
+
+            if (state) {
+                const cities = citiesByState[state];
+                cities.forEach(city => {
+                    const option = document.createElement("option");
+                    option.value = city;
+                    option.textContent = city;
+                    cityDropdown.appendChild(option);
+                });
+            } else {
+                const option = document.createElement("option");
+                option.value = "";
+                option.textContent = "Select State First";
+                cityDropdown.appendChild(option);
+            }
+        }
+
+        window.onload = function() {
+            const stateDropdown = document.getElementById("state");
+
+            for (const state in citiesByState) {
+                const option = document.createElement("option");
+                option.value = state;
+                option.textContent = state;
+                stateDropdown.appendChild(option);
+            }
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Validate First Name
+            document.getElementById('fname').addEventListener('input', function() {
+                const fname = this.value.trim();
+                const error1 = document.getElementById('error1');
+                if (fname === '') {
+                    error1.textContent = 'First Name is required.';
+                } else if (!/^[A-Za-z\s]+$/.test(fname)) {
+                    error1.textContent = 'First Name can only contain letters and spaces.';
+                } else {
+                    error1.textContent = '';
+                }
+            });
+        
+            // Validate Last Name
+            document.getElementById('lname').addEventListener('input', function() {
+                const lname = this.value.trim();
+                const error2 = document.getElementById('error2');
+                if (lname === '') {
+                    error2.textContent = 'Last Name is required.';
+                } else if (!/^[A-Za-z\s]+$/.test(lname)) {
+                    error2.textContent = 'Last Name can only contain letters and spaces.';
+                } else {
+                    error2.textContent = '';
+                }
+            });
+
+            // Validate Email
+            document.getElementById('email').addEventListener('input', function() {
+                const email = this.value.trim();
+                const error3 = document.getElementById('error3');
+                if (email === '') {
+                    error3.textContent = 'Email is required.';
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    error3.textContent = 'Please enter a valid email address.';
+                } else {
+                    error3.textContent = '';
+                }
+            });
+
+            // Password Strength
+            document.getElementById('password').addEventListener('input', function() {
+                const password = this.value;
+                const strengthIndicator = document.getElementById('password-strength');
+                const strengthBar = document.getElementById('password-strength-bar');
+                let strength = '';
+                let width = '0%';
+
+                if (password.length < 6) {
+                    strength = 'Password too short';
+                    strengthBar.style.width = width;
+                    strengthBar.style.backgroundColor = '#e0e0e0';
+                    strengthIndicator.className = 'password-strength weak';
+                } else if (password.length < 10) {
+                    strength = 'Weak';
+                    width = '50%';
+                    strengthBar.style.width = width;
+                    strengthBar.style.backgroundColor = 'orange';
+                    strengthIndicator.className = 'password-strength medium';
+                } else {
+                    strength = 'Strong';
+                    width = '100%';
+                    strengthBar.style.width = width;
+                    strengthBar.style.backgroundColor = 'green';
+                    strengthIndicator.className = 'password-strength strong';
+                }
+                strengthIndicator.textContent = strength;
+            });
+
+            // Validate Confirm Password
+            document.getElementById('confirm-password').addEventListener('input', function() {
+                const password = document.getElementById('password').value;
+                const confirmPassword = this.value;
+                const error5 = document.getElementById('error5');
+                if (confirmPassword === '') {
+                    error5.textContent = 'Please confirm your password.';
+                } else if (confirmPassword !== password) {
+                    error5.textContent = 'Passwords do not match.';
+                } else {
+                    error5.textContent = '';
+                }
+            });
+
+            // Validate State and City
+            document.getElementById('state').addEventListener('change', function() {
+                const state = this.value;
+                const error7 = document.getElementById('error7');
+                if (state === '') {
+                    error7.textContent = 'State is required.';
+                } else {
+                    error7.textContent = '';
+                }
+            });
+
+            document.getElementById('city').addEventListener('change', function() {
+                const city = this.value;
+                const error6 = document.getElementById('error6');
+                if (city === '') {
+                    error6.textContent = 'City is required.';
+                } else {
+                    error6.textContent = '';
+                }
+            });
+        });
+    </script>
+    <script>
+       document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Perform form validation here if needed
+
+    // Show success message
+    alert("Account created successfully. Please check your email for verification.");
+
+    // Optionally, you can redirect the user or clear the form after submission
+    // window.location.href = 'login.html'; // Redirect to login page
+    // this.reset(); // Clear the form fields
+});
+
+
+    </script>
+</body>
+</html>
